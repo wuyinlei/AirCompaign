@@ -28,7 +28,7 @@ cc.Class({
     },
 
     //批量初始化对象池
-    batchInitObjPoll: function(this0,objArray){
+    batchInitObjPool: function(this0,objArray){
         for(var i = 0 ; i < objArray.length ; i ++ ){
             var objinfo = objArray[i];
             this.initObjPoll(this0,objinfo);

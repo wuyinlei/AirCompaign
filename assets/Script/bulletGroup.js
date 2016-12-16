@@ -63,7 +63,7 @@ cc.Class({
         //初始化无限子弹组
         D.common.initObjPool(this, this.bulletInfinite);
         //初始化有限子弹组
-        D.common.batchInitObjPoll(this, this.bulletFiniteG);
+        D.common.batchInitObjPool(this, this.bulletFiniteG);
     },
 
     /** 开始执行动作 */
