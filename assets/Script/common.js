@@ -5,11 +5,7 @@ var gameState = cc.Enum({
 });
 
 var common = cc.Class({
-    extends: cc.Component,
 
-});
-
-cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -31,12 +27,12 @@ cc.Class({
     batchInitObjPool: function (this0, objArray) {
         for (var i = 0; i < objArray.length; i++) {
             var objinfo = objArray[i];
-            this.initObjPoll(this0, objinfo);
+            this.initObjPool(this0, objinfo);
         }
     },
 
     //初始化对象池
-    initObjPoll: function (this0, objInfo) {
+    initObjPool: function (this0, objInfo) {
         var name = objInfo.name;
         var poolName = name + 'Pool';
         this0[poolName] = new cc.NodePool();

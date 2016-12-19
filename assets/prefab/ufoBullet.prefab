@@ -115,7 +115,7 @@
     }
   },
   {
-    "__type__": "1e7a0zfIuJA+Kn9DAfY5544",
+    "__type__": "b3f31rS8h5Lt6D6wbJ9VnDM",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -138,6 +138,7 @@
     "asset": {
       "__uuid__": "d173ec7c-2f7f-4cb2-a625-79e84979b6ba"
     },
-    "fileId": "7d34dlF/ItAT7OxWiAHDBsz"
+    "fileId": "7d34dlF/ItAT7OxWiAHDBsz",
+    "sync": false
   }
 ]

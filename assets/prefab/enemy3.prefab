@@ -98,28 +98,6 @@
     }
   },
   {
-    "__type__": "14abee9CoxCobWl/nmeEUv8",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "scoreDisplay": null,
-    "xMinSpeed": 0,
-    "xMaxSpeed": 0,
-    "yMinSpeed": -50,
-    "yMaxSpeed": -50,
-    "initHP": 16,
-    "initSpriteFrame": {
-      "__uuid__": "4c993fe7-1278-42a8-985a-7e69688be01c"
-    },
-    "score": 16000,
-    "enemyDownClip": {
-      "__uuid__": "3168eee7-445c-43a8-bc5b-e8b080296087"
-    }
-  },
-  {
     "__type__": "cc.PolygonCollider",
     "_name": "",
     "_objFlags": 0,
@@ -218,6 +196,27 @@
     "playOnLoad": false
   },
   {
+    "__type__": "39dbdgZs7hALKJ1E02POHsD",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "xMinSpeed": 0,
+    "xMaxSpeed": 0,
+    "yMinSpeed": -50,
+    "yMaxSpeed": -50,
+    "initHP": 16,
+    "initSpriteFreme": {
+      "__uuid__": "4c993fe7-1278-42a8-985a-7e69688be01c"
+    },
+    "score": 16000,
+    "enemyDownClip": {
+      "__uuid__": "3168eee7-445c-43a8-bc5b-e8b080296087"
+    }
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -225,6 +224,7 @@
     "asset": {
       "__uuid__": "2dc6d514-b864-4cf9-a91c-8b4de0254f43"
     },
-    "fileId": "3fd73RfifJL0Y8+fB4/bB76"
+    "fileId": "3fd73RfifJL0Y8+fB4/bB76",
+    "sync": false
   }
 ]

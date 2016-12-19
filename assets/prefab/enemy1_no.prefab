@@ -92,7 +92,7 @@
     }
   },
   {
-    "__type__": "14abee9CoxCobWl/nmeEUv8",
+    "__type__": "39dbdgZs7hALKJ1E02POHsD",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -103,10 +103,9 @@
     "xMaxSpeed": 0,
     "yMinSpeed": 0,
     "yMaxSpeed": 0,
-    "hP": 0,
-    "score": 0,
-    "aniPrefab": null,
-    "main": null
+    "initHP": 0,
+    "initSpriteFreme": null,
+    "score": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -116,6 +115,7 @@
     "asset": {
       "__uuid__": "b2334c72-f116-4c4b-8d4e-fe32a2a236db"
     },
-    "fileId": "74ca8g+mKtM/bLta2tU7yxr"
+    "fileId": "74ca8g+mKtM/bLta2tU7yxr",
+    "sync": false
   }
 ]

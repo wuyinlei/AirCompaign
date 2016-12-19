@@ -25,7 +25,7 @@ cc.Class({
         // ...
         enemyG: {
             default: [],
-            type: enemyG,
+            type: enemyG
         },
 
         main: {
@@ -44,10 +44,10 @@ cc.Class({
     startAction: function () {
         this.eState = D.commonInfo.gameState.start;
         //定时生成敌机
-        for (var ei = 0; ei < this.enemyG.length; ei++) {
+        for (var ei = 0; ei < this.enemyG.length; ++ei) {
             var freqTime = this.enemyG[ei].freqTime;
             var fName = 'callback_' + ei;
-            this[fName] = function (e) { this.getNewEnemy(this.enemyG[e]); }.bind(this);
+            this[fName] = function (e) { this.getNewEnemy(this.enemyG[e]); }.bind(this,ei);
             this.schedule(this[fName], freqTime);
         }
     },
@@ -68,7 +68,7 @@ cc.Class({
     getNewEnemy: function (enemyInfo) {
         var poolName = enemyInfo.name + 'Pool';  //创建敌机名字
         //根据敌机名字，还有预制资源  当前节点  获取一个新的节点从缓存池中，缓存池如果没有，那么就自己生产一个
-        var newNode = D.common.getNewNode(this[poolName], enemyInfo.prefab, this.node); 
+        var newNode = D.common.getNewNode(this[poolName], enemyInfo.prefab, this.node);
         var newV2 = this.getNewEnemyPosition(newNode); //获取到新敌机的位置
         newNode.setPosition(newV2); //当前节点设置位置
         newNode.getComponent('enemy').init(); //初始化

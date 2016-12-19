@@ -10,16 +10,18 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         cc.director.getCollisionManager().enabled = true;
+        this.bulletGroup = this.node.parent.getComponent('bulletGroup');
     },
 
     /** 碰撞检测 */
-    onCollisionEnter: function(){
+    onCollisionEnter: function(other,self){
         this.bulletGroup.bulletDied(self.node);
+        //this.bulletGroup = this.node.parent.getComponent('enemyGroup');
     },
 
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        if(this.bulletGroup.eState != D.commentInfo.gameState.start){
+        if(this.bulletGroup.eState != D.commontInfo.gameState.start){
             return;
         }
 

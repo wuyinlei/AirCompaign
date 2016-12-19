@@ -12,7 +12,7 @@ cc.Class({
         bomb: cc.Node,
         gameMusic: {
             default: null,
-            type: cc.AudioClip
+            type: cc.AudioSource
         },
         useBombClip: cc.AudioClip,
 
@@ -42,7 +42,7 @@ cc.Class({
         this.bombNo = 0 ;
         this.scoreDisplay.string = this.score;
         this.bombNoDisplay.string = this.bombNo;
-        this.eState = D.commentInfo.gameState.start;
+        this.eState = D.commonInfo.gameState.start;
 
         this.enemyGroup.startAction();
         this.bulletGroup.startAction();
@@ -67,9 +67,9 @@ cc.Class({
 
     //暂停按钮点击事件
     pauseClick:function(){
-        if(this.eState == D.commentInfo.gameState.pause){
+        if(this.eState == D.commonInfo.gameState.pause){
             this.resumeAction();
-            this.eState = D.commentInfo.gameState.start;
+            this.eState = D.commonInfo.gameState.start;
         }
     },
 
