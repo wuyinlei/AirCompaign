@@ -9,7 +9,8 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabled = true;  //获取碰撞系统组件  并且设置为true  这个时候会自动的添加到碰撞检测中
+        //和自身是不进行碰撞的
         this.bulletGroup = this.node.parent.getComponent('bulletGroup');
     },
 

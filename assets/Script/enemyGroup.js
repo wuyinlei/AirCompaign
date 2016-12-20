@@ -42,12 +42,13 @@ cc.Class({
     },
 
     startAction: function () {
+        //当前游戏状态改为开始状态
         this.eState = D.commonInfo.gameState.start;
         //定时生成敌机
-        for (var ei = 0; ei < this.enemyG.length; ++ei) {
+        for (var ei = 0; ei < this.enemyG.length; ++ei) {  //根据自己传入的敌机的组数量
             var freqTime = this.enemyG[ei].freqTime;
-            var fName = 'callback_' + ei;
-            this[fName] = function (e) { this.getNewEnemy(this.enemyG[e]); }.bind(this,ei);
+            var fName = 'callback_' + ei;  //名字
+            this[fName] = function (e) { this.getNewEnemy(this.enemyG[e]); }.bind(this,ei); //构造一个执行动作
             this.schedule(this[fName], freqTime);
         }
     },

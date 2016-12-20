@@ -37,11 +37,13 @@ var common = cc.Class({
         var poolName = name + 'Pool';
         this0[poolName] = new cc.NodePool();
 
-        let initPollCount = objInfo.initPollCount;
+        let initPollCount = objInfo.initPollCount;  //初始化的大小
 
         for (let ii = 0; ii < initPollCount; ii++) {
             let node0 = cc.instantiate(objInfo.prefab);//创建预制节点
-            this0[poolName].put(node0); //通过 putInPoll 接口放入对象池
+            this0[poolName].put(node0); //通过 putInPoll 接口放入对象池  向缓冲池中存入一个不再需要的节点对象，这个
+            //函数会自动的将目标节点从父节点上移除，但是不会进行cleanup操作，这个函数会调用poolHandlerComp的unuse函数，如果
+            //组件和函数都存在的话。
         }
     },
 
@@ -53,14 +55,14 @@ var common = cc.Class({
         } else {
             newNode = cc.instantiate(prefab); //如果没有空闲的对象，也就是说对象池中的备用对象不够， 才用cc.instantiate重新创建
         }
-        nodeParent.addChild(newNode);
+        nodeParent.addChild(newNode);  //因为传入过来的有该生成节点的父节点  生成之后添加到父节点上
         return newNode;
     },
 
     //放回对象池
     backObjPool: function (this0, nodeinfo) {
         var poolName = nodeinfo.name + 'Pool';
-        this0[poolName].put(nodeinfo);
+        this0[poolName].put(nodeinfo); //放回缓存池  返回NodePool对象
     },
 
     //时间格式化

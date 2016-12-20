@@ -5,10 +5,10 @@ var ufoG = cc.Class({
         name: '',
         freqTime: 0,
         prefab: cc.Prefab,
-        initPoolCount: 0,
+        initPoolCount: 0,  //初始化的池数量
         minDelay: {
             default: 0,
-            tooltip: '最小延迟'
+            tooltip: '最小延迟' //用户提示
         },
         maxDelay: {
             default: 0,
@@ -33,53 +33,54 @@ cc.Class({
     },
 
     /** 开始动作 */
-    startAction:function(){
+    startAction: function () {
         //ufo
         this.eState = D.commonInfo.gameState.start;
 
         //定时生敌机
-        for(var ui = 0 ; ui < this.ufoG.lenght ; ui ++ ){
+        for (var ui = 0; ui < this.ufoG.lenght; ui++) {
             var freqTime = this.ufoG[ui].freqTime;
-            var fName = 'callback_' + ui;
-            this[fName] = function(e){this.randNewUfo(this.ufoG[e]);}.bind(this);
-            this.schedule(this[fName],from);
+            var fName = 'callback_' + ui;  //名字
+            this[fName] = function (e) { this.randNewUfo(this.ufoG[e]); }.bind(this);
+            this.schedule(this[fName], from);
         }
     },
 
     //随机生成敌机
-    randNewUfo: function(ufoinfo){
+    randNewUfo: function (ufoinfo) {
         var delay = Math.random() * (ufoinfo.maxDelay - ufoinfo.minDelay) + ufoinfo.minDelay;
-        this.scheduleOnce(function(e){this.getNewUfo(e);}.bind(this,ufoinfo),delay);
+        this.scheduleOnce(function (e) { this.getNewUfo(e); }.bind(this, ufoinfo), delay);
     },
 
     //生成敌机
-    getNewUfo: function(ufoInof){
+    getNewUfo: function (ufoInof) {
         var poolName = ufoInof.name + 'Pool';
-        var newNode = D.common.getNewNode(this[poolName],ufoInof.prefab,this.node);
+        var newNode = D.common.getNewNode(this[poolName], ufoInof.prefab, this.node);
         var newV2 = this.getNewUfoPosition(newNode);
         newNode.setPosition(newV2);
     },
 
     //敌机随机生成的位置
-    getNewUfoPosition: function(newUfo){
+    getNewUfoPosition: function (newUfo) {
         //位于上方，可以不见
         var randx = cc.randomMinus1To1() * (this.node.parent.width / 2 - newUfo.width / 2);
-        var randy = this.node.parent.height / 2 + newUfo.height / 2; 
-        return cc.v2(randx,randy);
+        var randy = this.node.parent.height / 2 + newUfo.height / 2;
+        return cc.v2(randx, randy);
     },
 
     //重新开始
-    resumeAction:function(){
+    resumeAction: function () {
         this.enabled = true;
         this.eState = D.commonInfo.gameState.start;
     },
 
     //暂停
-    pauseAction:function(){
+    pauseAction: function () {
         this.enabled = false;
         this.eState = D.commonInfo.gameState.pause;
     },
 
+    /** ufo死亡  回收节点 */
     ufoDied: function (nodeinfo) {
         //回收节点
         D.common.backObjPool(this, nodeinfo);

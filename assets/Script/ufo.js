@@ -30,15 +30,15 @@ cc.Class({
     onLoad: function () {
         cc.director.getCollisionManager().enabled = true;
 
-        this.xSpeed = Math.random() * (this.xMaxSpeed - this.xMinSpeed) + this.xMinSpeed;
-        this.ySpeed = Math.random() * (this.yMaxSpeed - this,yMinSpeed) + this.yMinSpeed;
+        this.xSpeed = Math.random() * (this.xMaxSpeed - this.xMinSpeed) + this.xMinSpeed;  //x轴速度
+        this.ySpeed = Math.random() * (this.yMaxSpeed - this,yMinSpeed) + this.yMinSpeed;  //y轴速度
 
-        this.ufoGroup = this.node.parent.getComponent('ufoGroup');
+        this.ufoGroup = this.node.parent.getComponent('ufoGroup');  //获取到ufoGroup节点
     },
 
     /** 碰撞检测 */
     onCollisionEnter:function(other,self){
-        this.node.destroy();
+        this.node.destroy(); 
         cc.audioEngine.playEffect(this.getUfoClip,false);
     },
 
